@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Durgaprasad Budhwani Tech9',
   authorAddress: 'durga@tech9.com',
-  cdkVersion: '2.62.3',
+  cdkVersion: '2.62.2',
   defaultReleaseBranch: 'main',
   name: 'tech9-cdk-nextjs-standalone',
   repositoryUrl: 'https://github.com/jetbridge/cdk-nextjs.git',
