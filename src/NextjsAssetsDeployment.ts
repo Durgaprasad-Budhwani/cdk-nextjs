@@ -185,8 +185,8 @@ export class NextJsAssetsDeployment extends Construct {
       prune: this.props.prune,
       useEfs: this.props.useEfs,
       vpc: this.props.vpc,
-      memoryLimit: this.props.memoryLimit,
-      ephemeralStorageSize: this.props.ephemeralStorageSize,
+      memoryLimit: this.props.memoryLimit || 1024 * 5, // 5GB
+      ephemeralStorageSize: this.props.ephemeralStorageSize || Size.gibibytes(10),
     });
 
     return [deployment];
