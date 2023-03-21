@@ -15,7 +15,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
     // ignorePatterns: ['assets/**/*']
   },
   majorVersion: 2,
-  minMajorVersion: 1,
   // prerelease: 'pre',
 
   tsconfig: { compilerOptions: { noUnusedLocals: false }, include: ['assets/**/*.ts'] },
