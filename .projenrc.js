@@ -2,7 +2,7 @@ const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'JetBridge',
   authorAddress: 'mischa@jetbridge.com',
-  cdkVersion: '2.62.2',
+  cdkVersion: '2.73.0',
   defaultReleaseBranch: 'main',
   name: 'cdk-nextjs-standalone',
   repositoryUrl: 'https://github.com/jetbridge/cdk-nextjs.git',
@@ -14,7 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     prettier: true,
     // ignorePatterns: ['assets/**/*']
   },
-  majorVersion: 2,
+  majorVersion: 3,
   // prerelease: 'pre',
 
   tsconfig: { compilerOptions: { noUnusedLocals: false }, include: ['assets/**/*.ts'] },
@@ -30,14 +30,21 @@ const project = new awscdk.AwsCdkConstructLibrary({
     '@types/fs-extra',
     '@types/micromatch',
     '@types/aws-lambda',
-    'esbuild@0.15.18',
+    'esbuild@0.17.16',
     'aws-lambda',
     'serverless-http',
     'jszip',
     'glob',
     'node-fetch',
+    '@aws-sdk/signature-v4',
+    '@aws-crypto/sha256-js',
   ] /* Runtime dependencies of this module. */,
-  devDeps: ['aws-sdk', 'constructs@10.1.21'] /* Build dependencies for this module. */,
+  devDeps: ['open-next', 'aws-sdk', 'constructs'] /* Build dependencies for this module. */,
+  jestOptions: {
+    jestConfig: {
+      testMatch: ['<rootDir>/src/**/__tests__/**/*.ts?(x)', '<rootDir>/(test|src)/**/*(*.)@(spec|test|assets).ts?(x)'],
+    },
+  },
 
   // do not generate sample test files
   sampleCode: false,
